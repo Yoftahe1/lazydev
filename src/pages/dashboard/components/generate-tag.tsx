@@ -39,7 +39,6 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
 
   function handleClick(event: React.MouseEvent, path: string) {
     event.stopPropagation();
-    console.log(path);
     setPath(path);
   }
 

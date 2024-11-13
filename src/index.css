@@ -20,10 +20,35 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.rc-tree-indent-unit {
+  width: 10px !important; 
+}
+
+.rc-tree-switcher {
+  background: none !important;
+  border: none !important;
+  width: 26px !important;
+  height: 24px !important;
+}
+
+.rc-tree-switcher_open,
+.rc-tree-switcher_close {
+  content: none !important;
+  background: none !important;
+}
+
+.rc-tree-switcher::before {
+  display: none !important;
+}
+
+.rc-tree .rc-tree-node-selected {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
 
 @layer base {
   :root {

@@ -1,20 +1,21 @@
 import { useDrag } from "react-dnd";
 
 import TagI from "@/types/tag";
-import tags from "@/constants/tags/default";
+import defaultTags from "@/constants/tags/default"; 
+import shadCnTags from "@/constants/tags/shadcn";
 
 const Tags = () => {
   return (
     <div className="flex flex-col gap-4 p-4">
       <p>Default</p>
       <div className="grid grid-cols-2 gap-4 ">
-        {tags.map((tag) => (
+        {defaultTags.map((tag) => (
           <Tag key={tag.name} name={tag.name} tag={tag.value} />
         ))}
       </div>
       <p>ShadCn</p>
       <div className="grid grid-cols-2 gap-4 ">
-        {tags.map((tag) => (
+        {shadCnTags.map((tag) => (
           <Tag key={tag.name} name={tag.name} tag={tag.value} />
         ))}
       </div>

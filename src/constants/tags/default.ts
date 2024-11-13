@@ -96,15 +96,6 @@ const defaultTags: {
       placeholder: "Please provide text",
     },
   },
-  {
-    name: "hhh",
-    value: {
-      type: "shadCnButton",
-      content: "Submit",
-      width: 150,
-      height: 40,
-    },
-  },
 ];
 
 export default defaultTags;

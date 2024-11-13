@@ -14,7 +14,7 @@ import { ChevronsUpDown } from "lucide-react";
 
 const Tags = () => {
   return (
-    <div className="flex flex-col gap-4 p-4">
+    <div className="flex flex-col gap-2 ">
       <Accordion title="Default" tags={defaultTags} />
       <Accordion title="ShadCn" tags={shadCnTags} />
     </div>
@@ -68,7 +68,7 @@ function Tag({ tag, name }: { tag: TagI; name: string }) {
   return (
     <div
       ref={drag}
-      className="bg-white dark:bg-black rounded-md border-[1px] border-gray-400 hover:border-blue-500 border-dashed h-[117px] flex items-center justify-center"
+      className="bg-white dark:bg-black rounded-md border-[1px] border-gray-400 hover:border-blue-500 border-dashed h-[117px] flex items-center justify-center cursor-move"
     >
       <p className=" text-sm">{name.toUpperCase()}</p>
     </div>

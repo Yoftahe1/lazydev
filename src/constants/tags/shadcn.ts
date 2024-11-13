@@ -1,7 +1,7 @@
-import Tag from "@/types/tag";
+import TagI from "@/types/tag";
 
 const shadCnTags: {
-  value: Tag;
+  value: TagI;
   name: string;
 }[] = [
   {

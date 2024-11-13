@@ -1,27 +1,58 @@
 import { useDrag } from "react-dnd";
 
 import TagI from "@/types/tag";
-import defaultTags from "@/constants/tags/default"; 
+import defaultTags from "@/constants/tags/default";
 import shadCnTags from "@/constants/tags/shadcn";
+import { Button } from "@/components/ui/button";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { useState } from "react";
+import { ChevronsUpDown } from "lucide-react";
 
 const Tags = () => {
   return (
     <div className="flex flex-col gap-4 p-4">
-      <p>Default</p>
-      <div className="grid grid-cols-2 gap-4 ">
-        {defaultTags.map((tag) => (
-          <Tag key={tag.name} name={tag.name} tag={tag.value} />
-        ))}
-      </div>
-      <p>ShadCn</p>
-      <div className="grid grid-cols-2 gap-4 ">
-        {shadCnTags.map((tag) => (
-          <Tag key={tag.name} name={tag.name} tag={tag.value} />
-        ))}
-      </div>
+      <Accordion title="Default" tags={defaultTags} />
+      <Accordion title="ShadCn" tags={shadCnTags} />
     </div>
   );
 };
+
+interface AccordionI {
+  title: string;
+  tags: {
+    value: TagI;
+    name: string;
+  }[];
+}
+function Accordion({ title, tags }: AccordionI) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <CollapsibleTrigger className="w-full">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="w-full flex justify-between"
+        >
+          <p className="text-sm font-semibold">{title}</p>
+          <ChevronsUpDown className="h-4 w-4" />
+        </Button>
+      </CollapsibleTrigger>
+      <CollapsibleContent className=" mt-4">
+        <div className="grid grid-cols-2 gap-4 ">
+          {tags.map((tag) => (
+            <Tag key={tag.name} name={tag.name} tag={tag.value} />
+          ))}
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
 
 export default Tags;
 

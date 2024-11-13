@@ -1,7 +1,7 @@
-import Tag from "@/types/tag";
+import TagI from "@/types/tag";
 
 const defaultTags: {
-  value: Tag;
+  value: TagI;
   name: string;
 }[] = [
   {

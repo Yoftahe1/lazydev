@@ -3,7 +3,6 @@ import { useDrag } from "react-dnd";
 import TagI from "@/types/tag";
 import defaultTags from "@/constants/tags/default";
 import shadCnTags from "@/constants/tags/shadcn";
-import { Button } from "@/components/ui/button";
 import {
   Collapsible,
   CollapsibleContent,
@@ -34,14 +33,10 @@ function Accordion({ title, tags }: AccordionI) {
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
       <CollapsibleTrigger className="w-full">
-        <Button
-          variant="ghost"
-          size="sm"
-          className="w-full flex justify-between"
-        >
+        <div className="w-full flex justify-between hover:bg-accent hover:text-accent-foreground p-2 rounded-md">
           <p className="text-sm font-semibold">{title}</p>
           <ChevronsUpDown className="h-4 w-4" />
-        </Button>
+        </div>
       </CollapsibleTrigger>
       <CollapsibleContent className=" mt-4">
         <div className="grid grid-cols-2 gap-4 ">

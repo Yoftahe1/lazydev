@@ -1,6 +1,7 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import Tags from "./Tags";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import App from "./Tree";
 
 const LeftSidebar = () => {
   return (
@@ -17,7 +18,9 @@ const LeftSidebar = () => {
         <TabsContent value="tag">
           <Tags />
         </TabsContent>
-        <TabsContent value="tree">Change your tree here.</TabsContent>
+        <TabsContent value="tree">
+          <App/>
+        </TabsContent>
       </Tabs>
       <div className="flex p-4 py-2 border-t-[1px] justify-between items-center  ">
         <p>Theme</p>

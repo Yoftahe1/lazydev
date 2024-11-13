@@ -31,7 +31,7 @@ const defaultTags: {
       direction: "column",
       height: 300,
       width: 1000,
-      bgColor: "ffffff",
+      // bgColor: "ffffff",
       content: [],
     },
   },

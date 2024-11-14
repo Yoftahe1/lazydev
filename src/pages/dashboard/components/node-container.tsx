@@ -15,7 +15,7 @@ const NodeContainer = memo(({ data }: NodeContainerI) => {
   const path = nodes.findIndex((node) => node.id === id);
 
   return (
-    <div className="border-[1px] border-gray-300 bg-white">
+    <div className="border-[1px] border-gray-300 bg-background">
       <GenerateTag tag={data.tag} path={path.toString()} />
     </div>
   );

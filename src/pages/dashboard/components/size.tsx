@@ -6,7 +6,7 @@ import { Label } from "@radix-ui/react-label";
 const Size = () => {
   const path = useNodeStore((state) => state.path);
   const nodes = useNodeStore((state) => state.nodes);
-  console.log(getTag(nodes, path))
+  const { width, height } = getTag(nodes, path);
 
   return (
     <div className="flex gap-4">
@@ -16,7 +16,7 @@ const Size = () => {
           type="number"
           id="width"
           placeholder="width"
-          defaultValue={10}
+          value={width ? width : ""}
           min={0}
           onChange={(event) => {
             const value = event.target.value;
@@ -32,14 +32,14 @@ const Size = () => {
           type="number"
           id="height"
           placeholder="height"
-          defaultValue={10}
+          value={height ? height : ""}
           min={0}
           onChange={(event) => {
             const value = event.target.value;
 
             useNodeStore
               .getState()
-              .changeValue("height", value ? parseInt(value) : undefined);
+              .changeValue("height", value ? Number(value) : undefined);
           }}
         />
       </div>

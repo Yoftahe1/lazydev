@@ -64,13 +64,13 @@ const useNodeStore = create<State & Actions>()(
       {
         id: "1",
         type: "nodeContainer",
-        position: { x: 300, y: 300 },
+        position: { x: 700, y: 200 },
         data: {
           id: "1",
           tag: {
             type: "container",
             direction: "column",
-            height: 1000,
+            height: 300,
             content: [
               {
                 type: "shadCnButton",

@@ -1,7 +1,11 @@
-import React from "react";
+import Navbar from "./components/navbar";
 
 const Marketing = () => {
-  return <div>Marketing</div>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 };
 
 export default Marketing;

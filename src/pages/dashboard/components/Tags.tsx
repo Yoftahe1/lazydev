@@ -1,21 +1,23 @@
+import { useState } from "react";
 import { useDrag } from "react-dnd";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
-import TagI from "@/types/tag";
-import defaultTags from "@/constants/tags/default";
-import shadCnTags from "@/constants/tags/shadcn";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { useState } from "react";
-import { ChevronsUpDown } from "lucide-react";
+import TagI from "@/types/tag";
+import defaultTags from "@/constants/tags/default";
+import shadCnTags from "@/constants/tags/shadcn";
 
 const Tags = () => {
   return (
     <div className="flex flex-col gap-2 ">
       <Accordion title="Default" tags={defaultTags} />
       <Accordion title="ShadCn" tags={shadCnTags} />
+      <Accordion title="ReactNative" tags={[]} />
+      <Accordion title="Custom" tags={[]} />
     </div>
   );
 };
@@ -35,15 +37,23 @@ function Accordion({ title, tags }: AccordionI) {
       <CollapsibleTrigger className="w-full">
         <div className="w-full flex justify-between hover:bg-accent hover:text-accent-foreground p-2 rounded-md">
           <p className="text-sm font-semibold">{title}</p>
-          <ChevronsUpDown className="h-4 w-4" />
+          {isOpen ? (
+            <ChevronUp className="h-4 w-4" />
+          ) : (
+            <ChevronDown className="h-4 w-4" />
+          )}
         </div>
       </CollapsibleTrigger>
-      <CollapsibleContent className=" mt-4">
-        <div className="grid grid-cols-2 gap-4 ">
-          {tags.map((tag) => (
-            <Tag key={tag.name} name={tag.name} tag={tag.value} />
-          ))}
-        </div>
+      <CollapsibleContent className=" mt-2 ">
+        {tags.length === 0 ? (
+          <p className="w-full text-center">coming soon</p>
+        ) : (
+          <div className="grid grid-cols-2 gap-4 ">
+            {tags.map((tag) => (
+              <Tag key={tag.name} name={tag.name} tag={tag.value} />
+            ))}
+          </div>
+        )}
       </CollapsibleContent>
     </Collapsible>
   );

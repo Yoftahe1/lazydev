@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { v4 as uuidv4 } from "uuid";
 import { immer } from "zustand/middleware/immer";
 
 import TagI from "../types/tag";
@@ -15,6 +16,10 @@ type Actions = {
   deleteTag: (path: string) => void;
   setNodes: (nodes: NodeI[]) => void;
   addTag: (tag: TagI, path: string) => void;
+  changeValue: <Option extends keyof TagI>(
+    option: Option,
+    value: TagI[Option]
+  ) => void;
 };
 
 const useNodeStore = create<State & Actions>()(
@@ -137,6 +142,57 @@ const useNodeStore = create<State & Actions>()(
         }
 
         state.path = "";
+      }),
+    changeValue: (option, value) =>
+      set((state) => {
+        const updateTag = (tag: TagI, path: string) => {
+          let keys = path.split("/");
+          if (keys.length === 1) {
+            const id = uuidv4();
+            const oldNodes = state.nodes;
+
+            const node: NodeI = {
+              id,
+              position: {
+                x: oldNodes[Number(keys[0])].position.x,
+                y: oldNodes[Number(keys[0])].position.y,
+              },
+              type: "nodeContainer",
+              data: {
+                id,
+                tag: oldNodes[Number(keys[0])].data.tag,
+              },
+            };
+            node.data.tag[option] = value;
+            oldNodes.splice(Number(keys[0]), 1);
+            oldNodes.splice(Number(keys[0]), 0, node);
+            state.nodes = [...oldNodes];
+          } else {
+            keys = path.slice(2).split("/").filter(Boolean);
+            let current = tag;
+
+            for (let i = 0; i < keys.length - 1; i++) {
+              const key = Number(keys[i]);
+              if (Array.isArray(current.content)) {
+                current = current.content[key];
+              }
+            }
+
+            const lastKey = parseInt(keys[keys.length - 1], 10);
+            if (Array.isArray(current.content)) {
+              current.content[lastKey] = {
+                ...current.content[lastKey],
+                [option]: value,
+              };
+            }
+          }
+        };
+
+        const tags = state.nodes.map((node) => {
+          return node.data.tag;
+        });
+
+        updateTag(tags[Number(state.path[0])], state.path);
       }),
   }))
 );

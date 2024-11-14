@@ -91,7 +91,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
       return (
         <img
           src={typeof tag.content === "string" ? tag.content : ""}
-          alt={tag.alt || ""}
+          alt={tag.placeholder || ""}
           style={style}
           onClick={(e) => handleClick(e, path)}
           key={path}

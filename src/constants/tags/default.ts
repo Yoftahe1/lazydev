@@ -55,7 +55,7 @@ const defaultTags: {
       bgColor: "ffffff",
       content: "Please provide image source",
       radius: 20,
-      alt: "Please provide image alt",
+      placeholder: "Please provide image alt",
     },
   },
   {
@@ -66,7 +66,7 @@ const defaultTags: {
       width: 250,
       pl: 10,
       pr: 10,
-      bgColor: "ffffff",
+      color: "000000",
       option: "password",
       content: "",
       radius: 5,

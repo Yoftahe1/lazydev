@@ -4,6 +4,7 @@ import Box from "./box";
 import { Button } from "@/components/ui/button";
 import Size from "./size";
 import Content from "./content";
+import Placeholder from "./placeholder";
 // import Display from "./display";
 // import Text from "./text";
 
@@ -21,6 +22,7 @@ const RightSidebar = () => {
           {tag.type.toLocaleUpperCase()} FEATURES
         </h6>
         <Content/>
+        <Placeholder/>
         <Size />
         {/* <Display /> */}
         {/* <Text /> */}

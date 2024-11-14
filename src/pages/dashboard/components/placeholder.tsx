@@ -3,29 +3,29 @@ import { Label } from "@/components/ui/label";
 import useNodeStore from "@/stores/nodes";
 import getTag from "../function/get-tag";
 
-const Content = () => {
+const Placeholder = () => {
   const path = useNodeStore((state) => state.path);
   const nodes = useNodeStore((state) => state.nodes);
-  const { content } = getTag(nodes, path);
+  const { placeholder, type } = getTag(nodes, path);
 
-  if (typeof content === "object") return null;
+  if (type !== "input" && type !== "textarea" && type !== "image") return null;
 
   return (
     <div>
-      <Label htmlFor="content">content</Label>
+      <Label htmlFor="content">placeholder</Label>
       <Input
-        id="content"
-        placeholder="content"
-        value={content ? content : ""}
+        id="placeholder"
+        placeholder="placeholder"
+        value={placeholder ? placeholder : ""}
         onChange={(event) => {
           const value = event.target.value;
           useNodeStore
             .getState()
-            .changeValue("content", value ? value : undefined);
+            .changeValue("placeholder", value ? value : undefined);
         }}
       />
     </div>
   );
 };
 
-export default Content;
+export default Placeholder;

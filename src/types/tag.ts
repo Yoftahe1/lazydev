@@ -19,7 +19,6 @@ export default interface TagI {
     | "space-around"
     | "space-evenly";
   gap?: number;
-  alt?: string;
   placeholder?: string;
   color?: string;
   width?: number;

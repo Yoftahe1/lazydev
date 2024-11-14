@@ -3,6 +3,7 @@ import getTag from "../function/get-tag";
 import Box from "./box";
 import { Button } from "@/components/ui/button";
 import Size from "./size";
+import Content from "./content";
 // import Display from "./display";
 // import Text from "./text";
 
@@ -19,6 +20,7 @@ const RightSidebar = () => {
         <h6 className="text-sm text-center">
           {tag.type.toLocaleUpperCase()} FEATURES
         </h6>
+        <Content/>
         <Size />
         {/* <Display /> */}
         {/* <Text /> */}

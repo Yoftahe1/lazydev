@@ -11,13 +11,13 @@ const Size = () => {
   return (
     <div className="flex gap-4">
       <div>
-        <Label htmlFor="width">Width</Label>
+        <Label htmlFor="width">width</Label>
         <Input
-          type="number"
+          min={0}
           id="width"
+          type="number"
           placeholder="width"
           value={width ? width : ""}
-          min={0}
           onChange={(event) => {
             const value = event.target.value;
             useNodeStore

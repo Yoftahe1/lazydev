@@ -9,6 +9,8 @@ export default interface TagI {
     | "textarea"
     | "form"
     | "shadCnButton";
+
+  name?: string;
   direction?: "column" | "row";
   align?: "flex-start" | "center" | "flex-end" | "stretch";
   justify?:

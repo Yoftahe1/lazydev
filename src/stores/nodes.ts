@@ -42,6 +42,7 @@ const useNodeStore = create<State & Actions>()(
                 type: "text",
                 content: "Card header",
                 bgColor: "ffff88",
+                color:"00ff00",
                 textAlign: "center",
               },
               {

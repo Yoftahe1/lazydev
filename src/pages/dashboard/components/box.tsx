@@ -12,7 +12,7 @@ const Box = () => {
       <Input
         min={0}
         type="number"
-        className="w-10 h-9 p-2"
+        className="w-10 h-9 p-2 "
         placeholder="Mt"
         value={mt ? mt : ""}
         onChange={(event) => {
@@ -26,7 +26,7 @@ const Box = () => {
         <Input
           min={0}
           type="number"
-          className="w-10 h-9 p-2"
+          className="w-10 h-9 p-2 "
           placeholder="Ml"
           value={ml ? ml : ""}
           onChange={(event) => {
@@ -40,7 +40,7 @@ const Box = () => {
           <Input
             min={0}
             type="number"
-            className="w-10 h-9 p-2"
+            className="w-10 h-9 p-2 "
             placeholder="Pt"
             value={pt ? pt : ""}
             onChange={(event) => {
@@ -54,7 +54,7 @@ const Box = () => {
             <Input
               min={0}
               type="number"
-              className="w-10 h-9 p-2"
+              className="w-10 h-9 p-2 "
               placeholder="Pl"
               value={pl ? pl : ""}
               onChange={(event) => {
@@ -68,7 +68,7 @@ const Box = () => {
             <Input
               min={0}
               type="number"
-              className="w-10 h-9 p-2"
+              className="w-10 h-9 p-2 "
               placeholder="Pr"
               value={pr ? pr : ""}
               onChange={(event) => {
@@ -82,7 +82,7 @@ const Box = () => {
           <Input
             min={0}
             type="number"
-            className="w-10 h-9 p-2"
+            className="w-10 h-9 p-2 "
             placeholder="Pb"
             value={pb ? pb : ""}
             onChange={(event) => {
@@ -96,7 +96,7 @@ const Box = () => {
         <Input
           min={0}
           type="number"
-          className="w-10 h-9 p-2"
+          className="w-10 h-9 p-2 "
           placeholder="Mr"
           value={mr ? mr : ""}
           onChange={(event) => {
@@ -110,7 +110,7 @@ const Box = () => {
       <Input
         min={0}
         type="number"
-        className="w-10 h-9 p-2"
+        className="w-10 h-9 p-2 "
         placeholder="Mb"
         value={mb ? mb : ""}
         onChange={(event) => {

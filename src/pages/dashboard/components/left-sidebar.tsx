@@ -2,7 +2,7 @@ import { Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import App from "./Tree";
-import Tags from "./Tags";
+import Tags from "./tags";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

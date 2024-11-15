@@ -7,10 +7,9 @@ export default interface TagI {
     | "input"
     | "textarea"
     | "form"
-    |"shadCnButton";
+    | "shadCnButton";
   direction?: "column" | "row";
   align?: "flex-start" | "center" | "flex-end" | "stretch";
-  textAlign?: "left" | "center" | "right";
   justify?:
     | "flex-start"
     | "center"
@@ -19,11 +18,8 @@ export default interface TagI {
     | "space-around"
     | "space-evenly";
   gap?: number;
-  placeholder?: string;
-  color?: string;
   width?: number;
   height?: number;
-  radius?: number;
   pt?: number;
   pl?: number;
   pb?: number;
@@ -32,9 +28,13 @@ export default interface TagI {
   ml?: number;
   mb?: number;
   mr?: number;
+  radius?: number;
   bgColor?: string;
+  color?: string;
   fontSize?: number;
+  textAlign?: "left" | "center" | "right";
   fontWeight?: "lighter" | "bolder" | "bold" | "normal";
+  placeholder?: string;
+  inputOption?: "date" | "button" | "checkbox" | "email" | "password" | "text";
   content?: TagI[] | string;
-  option?: "date" | "button" | "checkbox" | "email" | "password" | "text";
 }

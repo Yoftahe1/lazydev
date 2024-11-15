@@ -1,7 +1,7 @@
 import getTag from "../function/get-tag";
 import useNodeStore from "@/stores/nodes";
 import { Input } from "@/components/ui/input";
-import { Label } from "@radix-ui/react-label";
+import { Label } from "@/components/ui/label";
 
 const Size = () => {
   const path = useNodeStore((state) => state.path);
@@ -27,7 +27,7 @@ const Size = () => {
         />
       </div>
       <div>
-        <Label htmlFor="height">Height</Label>
+        <Label htmlFor="height">height</Label>
         <Input
           type="number"
           id="height"

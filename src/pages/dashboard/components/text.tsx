@@ -1,25 +1,25 @@
 import { Input } from "@/components/ui/input";
-import { Label } from "@radix-ui/react-label";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem,
-} from "@radix-ui/react-select";
+} from "@/components/ui/select";
 
 const Text = () => {
   return (
     <>
       <div className="flex gap-4">
         <div className="flex-1">
-          <Label htmlFor="gap">Size</Label>
-          <Input type="number" id="gap" placeholder="gap" />
+          <Label htmlFor="gap">size</Label>
+          <Input type="number" id="size" placeholder="size" />
         </div>
-        <div className="flex-1 flex flex-col">
-          <Label htmlFor="width">Weight</Label>
-          <Select >
-            <SelectTrigger className="flex-1 bg-red-400">
+        <div className="flex-1">
+          <Label htmlFor="width">weight</Label>
+          <Select>
+            <SelectTrigger>
               <SelectValue placeholder="Theme" />
             </SelectTrigger>
             <SelectContent>
@@ -32,13 +32,13 @@ const Text = () => {
       </div>
       <div className="flex gap-4">
         <div className="flex-1">
-          <Label htmlFor="width">Color</Label>
+          <Label htmlFor="width">color</Label>
           <Input type="number" id="gap" placeholder="gap" />
         </div>
-        <div className="flex-1 bg-purple-500">
-          <Label htmlFor="gap">TextAlign</Label>
+        <div className="flex-1">
+          <Label htmlFor="gap">text-align</Label>
           <Select>
-            <SelectTrigger className="w-full h- bg-green-500">
+            <SelectTrigger>
               <SelectValue placeholder="Theme" />
             </SelectTrigger>
             <SelectContent>

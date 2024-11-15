@@ -102,7 +102,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
       return (
         <input
           defaultValue={typeof tag.content === "string" ? tag.content : ""}
-          type={tag.option || "text"}
+          type={tag.inputOption || "text"}
           placeholder={tag.placeholder || ""}
           style={style}
           onClick={(e) => handleClick(e, path)}

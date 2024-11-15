@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import Size from "./size";
 import Content from "./content";
 import Placeholder from "./placeholder";
-// import Display from "./display";
-// import Text from "./text";
+import Display from "./display";
+import Text from "./text";
 
 const RightSidebar = () => {
   const path = useNodeStore((state) => state.path);
@@ -21,11 +21,11 @@ const RightSidebar = () => {
         <h6 className="text-sm text-center">
           {tag.type.toLocaleUpperCase()} FEATURES
         </h6>
-        <Content/>
-        <Placeholder/>
+        <Content />
+        <Placeholder />
         <Size />
-        {/* <Display /> */}
-        {/* <Text /> */}
+        <Display />
+        <Text />
         <Box />
       </div>
       <Button

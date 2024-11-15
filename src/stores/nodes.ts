@@ -66,25 +66,6 @@ const useNodeStore = create<State & Actions>()(
           },
         },
       },
-      {
-        id: "1",
-        type: "nodeContainer",
-        position: { x: 700, y: 200 },
-        data: {
-          id: "1",
-          tag: {
-            type: "container",
-            direction: "column",
-            height: 300,
-            content: [
-              {
-                type: "shadCnButton",
-                content: "hello",
-              },
-            ],
-          },
-        },
-      },
     ],
     path: "",
     setPath: (path) => set(() => ({ path })),

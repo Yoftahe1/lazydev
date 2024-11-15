@@ -78,7 +78,7 @@ const Body = () => {
   }));
 
   return (
-    <div ref={drop} className="flex-1 bg-gray-50 dark:bg-zinc-800">
+    <div ref={drop} className="flex-1 bg-gray-200 dark:bg-zinc-800">
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}

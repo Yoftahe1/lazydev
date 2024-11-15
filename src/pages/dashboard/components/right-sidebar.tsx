@@ -7,6 +7,7 @@ import Content from "./content";
 import Placeholder from "./placeholder";
 import Display from "./display";
 import Text from "./text";
+import Container from "./container";
 
 const RightSidebar = () => {
   const path = useNodeStore((state) => state.path);
@@ -26,6 +27,7 @@ const RightSidebar = () => {
         <Size />
         <Display />
         <Text />
+        <Container/>
         <Box />
       </div>
       <Button

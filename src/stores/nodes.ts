@@ -42,7 +42,7 @@ const useNodeStore = create<State & Actions>()(
                 type: "text",
                 content: "Card header",
                 bgColor: "ffff88",
-                color:"00ff00",
+                color: "00ff00",
                 textAlign: "center",
               },
               {
@@ -77,6 +77,7 @@ const useNodeStore = create<State & Actions>()(
     addNode: (node) =>
       set((state) => {
         state.nodes = [...state.nodes, node];
+        state.path = (state.nodes.length - 1).toString();
       }),
     addTag: (tag, path) =>
       set((state) => {
@@ -96,6 +97,7 @@ const useNodeStore = create<State & Actions>()(
         const lastKey = keys.length > 1 ? keys[keys.length - 1] : 0;
         if (Array.isArray(current[lastKey].content)) {
           current[lastKey].content.push(tag);
+          console.log(current.length);
         }
       }),
     deleteTag: (path: string) =>

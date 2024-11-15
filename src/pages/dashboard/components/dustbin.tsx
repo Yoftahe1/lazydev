@@ -13,12 +13,12 @@ interface DustbinProps {
 
 const Dustbin = ({ children, onClick, style, path }: DustbinProps) => {
   const addTag = useNodeStore((state) => state.addTag);
+  const pathState = useNodeStore((state) => state.path);
 
   const [{ isOver, isOverCurrent }, drop] = useDrop(() => ({
     accept: "tag",
     drop: (item: { tag: TagI }, monitor) => {
       if (monitor.didDrop()) return;
-      console.log(path)
       addTag(item.tag, path);
     },
     collect: (monitor) => ({
@@ -32,7 +32,7 @@ const Dustbin = ({ children, onClick, style, path }: DustbinProps) => {
       ref={drop}
       onClick={onClick}
       style={{
-        border: isOverCurrent && isOver ? "1px solid #1677ff" : "none",
+        border: (isOverCurrent && isOver)||(pathState===path) ? "1px solid #1677ff" : "none",
         ...style,
       }}
     >

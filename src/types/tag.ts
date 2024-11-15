@@ -30,6 +30,7 @@ export default interface TagI {
   mr?: number;
   radius?: number;
   bgColor?: string;
+  shadow?: "small" | "medium" | "large";
   color?: string;
   fontSize?: number;
   textAlign?: "left" | "center" | "right";

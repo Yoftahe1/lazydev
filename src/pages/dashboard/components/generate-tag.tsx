@@ -4,14 +4,23 @@ import Dustbin from "./dustbin";
 import TagI from "@/types/tag";
 import useNodeStore from "@/stores/nodes";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface GenerateTagI {
   tag: TagI;
   path: string;
 }
 
+const shadow = {
+  none: "",
+  small: " 0 1px 2px rgb(0 0 0 / 0.1),0 1px 1px rgb(0 0 0 / 0.06)",
+  medium: " 0 4px 3px rgb(0 0 0 / 0.07), 0 2px 2px rgb(0 0 0 / 0.06)",
+  large: " 0 10px 8px rgb(0 0 0 / 0.04), 0 4px 3px rgb(0 0 0 / 0.1)",
+};
+
 const GenerateTag = ({ tag, path }: GenerateTagI) => {
   const setPath = useNodeStore((state) => state.setPath);
+  const pathState = useNodeStore((state) => state.path);
 
   const style: CSSProperties = {
     color: tag.color ? `#${tag.color}` : undefined,
@@ -32,6 +41,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
     width: tag.width ? `${tag.width}px` : undefined,
     height: tag.height ? `${tag.height}px` : undefined,
     display: tag.type === "container" ? "flex" : undefined,
+    boxShadow: tag.shadow ? shadow[tag.shadow] : "none",
     flexDirection: tag.direction,
     alignItems: tag.align,
     justifyContent: tag.justify,
@@ -75,14 +85,31 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
 
     case "text":
       return (
-        <p style={style} onClick={(e) => handleClick(e, path)} key={path}>
+        <p
+          style={
+            path === pathState
+              ? { ...style, border: "1px solid #1677ff" }
+              : { ...style }
+          }
+          onClick={(e) => handleClick(e, path)}
+          key={path}
+          className={cn(path === pathState && "bg-red-400")}
+        >
           {typeof tag.content === "string" ? tag.content : ""}
         </p>
       );
 
     case "button":
       return (
-        <button style={style} onClick={(e) => handleClick(e, path)} key={path}>
+        <button
+          style={
+            path === pathState
+              ? { ...style, border: "1px solid #1677ff" }
+              : { ...style }
+          }
+          onClick={(e) => handleClick(e, path)}
+          key={path}
+        >
           {typeof tag.content === "string" ? tag.content : ""}
         </button>
       );
@@ -92,7 +119,11 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
         <img
           src={typeof tag.content === "string" ? tag.content : ""}
           alt={tag.placeholder || ""}
-          style={style}
+          style={
+            path === pathState
+              ? { ...style, border: "1px solid #1677ff" }
+              : { ...style }
+          }
           onClick={(e) => handleClick(e, path)}
           key={path}
         />
@@ -104,7 +135,11 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
           defaultValue={typeof tag.content === "string" ? tag.content : ""}
           type={tag.inputOption || "text"}
           placeholder={tag.placeholder || ""}
-          style={style}
+          style={
+            path === pathState
+              ? { ...style, border: "1px solid #1677ff" }
+              : { ...style }
+          }
           onClick={(e) => handleClick(e, path)}
           key={path}
         />
@@ -115,14 +150,26 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
         <textarea
           defaultValue={typeof tag.content === "string" ? tag.content : ""}
           placeholder={tag.placeholder || ""}
-          style={style}
+          style={
+            path === pathState
+              ? { ...style, border: "1px solid #1677ff" }
+              : { ...style }
+          }
           onClick={(e) => handleClick(e, path)}
           key={path}
         />
       );
     case "shadCnButton":
       return (
-        <Button style={style} onClick={(e) => handleClick(e, path)} key={path}>
+        <Button
+          style={
+            path === pathState
+              ? { ...style, border: "1px solid #1677ff" }
+              : { ...style }
+          }
+          onClick={(e) => handleClick(e, path)}
+          key={path}
+        >
           {typeof tag.content === "string" ? tag.content : ""}
         </Button>
       );

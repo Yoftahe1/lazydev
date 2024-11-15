@@ -52,9 +52,9 @@ const Body = () => {
     accept: "tag",
     drop: ({ tag }: { tag: TagI }, monitor) => {
       if (monitor.didDrop()) return;
-      if (tag.type !== "container") {
-        toast.error("Error", {
-          description: "Only container is allowed to be drop in dashboard.",          
+      if (tag.type !== "screen") {
+        toast.error("Invalid Drop", {
+          description: "Only screens can be dropped here.",
         });
         return;
       }

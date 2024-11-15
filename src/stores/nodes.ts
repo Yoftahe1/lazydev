@@ -93,11 +93,14 @@ const useNodeStore = create<State & Actions>()(
             current = current[key].content;
           }
         }
-
         const lastKey = keys.length > 1 ? keys[keys.length - 1] : 0;
         if (Array.isArray(current[lastKey].content)) {
           current[lastKey].content.push(tag);
-          console.log(current.length);
+        }
+        if (current[0].content !== undefined) {
+          state.path = `${path}/${current[0].content.length - 1}`;
+        } else {
+          state.path = "0";
         }
       }),
     deleteTag: (path: string) =>

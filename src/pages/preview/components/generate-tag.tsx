@@ -42,6 +42,17 @@ const GenerateTag = ({ tag }: GenerateTagI) => {
             ))}
         </div>
       );
+    case "screen":
+      delete style["height"];
+      delete style["width"];
+      return (
+        <div style={style}>
+          {Array.isArray(tag.content) &&
+            tag.content.map((child, index) => (
+              <GenerateTag key={index} tag={child} />
+            ))}
+        </div>
+      );
 
     case "form":
       return (
@@ -63,7 +74,7 @@ const GenerateTag = ({ tag }: GenerateTagI) => {
       return (
         <img
           src={tag.content?.toString() || ""}
-          alt={tag.alt || ""}
+          alt={tag.placeholder || ""}
           style={style}
         />
       );
@@ -72,7 +83,7 @@ const GenerateTag = ({ tag }: GenerateTagI) => {
       return (
         <input
           defaultValue={tag.content?.toString() || ""}
-          type={tag.option || "text"}
+          type={tag.inputOption || "text"}
           placeholder={tag.placeholder || ""}
           style={style}
         />

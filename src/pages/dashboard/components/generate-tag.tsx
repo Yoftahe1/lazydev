@@ -67,6 +67,20 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
             ))}
         </Dustbin>
       );
+    case "screen":
+      return (
+        <Dustbin
+          path={path}
+          style={{...style,overflow:"auto"}}
+          onClick={(e) => handleClick(e, path)}
+          key={path}
+        >
+          {Array.isArray(tag.content) &&
+            tag.content.map((child, index) => (
+              <GenerateTag key={index} tag={child} path={`${path}/${index}`} />
+            ))}
+        </Dustbin>
+      );
 
     case "form":
       return (

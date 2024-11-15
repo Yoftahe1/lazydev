@@ -1,5 +1,6 @@
 export default interface TagI {
   type:
+    | "screen"
     | "container"
     | "text"
     | "button"

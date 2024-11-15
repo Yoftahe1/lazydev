@@ -6,8 +6,10 @@ import { Label } from "@/components/ui/label";
 const Size = () => {
   const path = useNodeStore((state) => state.path);
   const nodes = useNodeStore((state) => state.nodes);
-  const { width, height } = getTag(nodes, path);
+  const { width, height, type } = getTag(nodes, path);
 
+  if (type === "screen") return null;
+  
   return (
     <div className="flex gap-4">
       <div>

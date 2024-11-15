@@ -3,6 +3,7 @@ import { CSSProperties, ReactNode, MouseEvent } from "react";
 
 import TagI from "@/types/tag";
 import useNodeStore from "@/stores/nodes";
+import { toast } from "sonner";
 
 interface DustbinProps {
   children?: ReactNode;
@@ -17,9 +18,15 @@ const Dustbin = ({ children, onClick, style, path }: DustbinProps) => {
 
   const [{ isOver, isOverCurrent }, drop] = useDrop(() => ({
     accept: "tag",
-    drop: (item: { tag: TagI }, monitor) => {
+    drop: ({ tag }: { tag: TagI }, monitor) => {
       if (monitor.didDrop()) return;
-      addTag(item.tag, path);
+      if (tag.type === "screen") {
+        toast.error("Invalid Drop", {
+          description: "Screen can't be children of any tag.",
+        });
+        return;
+      }
+      addTag(tag, path);
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
@@ -32,7 +39,10 @@ const Dustbin = ({ children, onClick, style, path }: DustbinProps) => {
       ref={drop}
       onClick={onClick}
       style={{
-        border: (isOverCurrent && isOver)||(pathState===path) ? "1px solid #1677ff" : "none",
+        border:
+          (isOverCurrent && isOver) || pathState === path
+            ? "1px solid #1677ff"
+            : "none",
         ...style,
       }}
     >

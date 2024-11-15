@@ -25,7 +25,7 @@ input[type="number"] {
 }
 
 .rc-tree-indent-unit {
-  width: 10px !important; 
+  width: 10px !important;
 }
 
 .rc-tree-switcher {
@@ -48,6 +48,19 @@ input[type="number"] {
 .rc-tree .rc-tree-node-selected {
   background-color: transparent !important;
   box-shadow: none !important;
+}
+
+.react-colorful__pointer{
+height: 15px !important ;
+width: 15px !important ;
+}
+
+.react-colorful__hue {
+  height: 8px !important ;
+}
+
+.react-colorful__last-control{
+  border-radius: 5px !important;
 }
 
 @layer base {

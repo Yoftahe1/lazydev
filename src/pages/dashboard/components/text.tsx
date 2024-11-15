@@ -7,25 +7,53 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+import useNodeStore from "@/stores/nodes";
+import getTag from "../function/get-tag";
 
 const Text = () => {
+  const path = useNodeStore((state) => state.path);
+  const nodes = useNodeStore((state) => state.nodes);
+  const { fontWeight,fontSize, textAlign, content, type } = getTag(nodes, path);
+
+  if (typeof content === "object" || type === "image") return null;
+
   return (
     <>
       <div className="flex gap-4">
         <div className="flex-1">
-          <Label htmlFor="gap">size</Label>
-          <Input type="number" id="size" placeholder="size" />
+          <Label htmlFor="size">size</Label>
+          <Input
+          min={0}
+          id="size"
+          type="number"
+          placeholder="width"
+          value={fontSize ? fontSize : ""}
+          onChange={(event) => {
+            const value = event.target.value;
+            useNodeStore
+              .getState()
+              .changeValue("fontSize", value ? Number(value) : undefined);
+          }}
+        />
         </div>
         <div className="flex-1">
-          <Label htmlFor="width">weight</Label>
-          <Select>
+          <Label htmlFor="weight">weight</Label>
+          <Select
+            value={fontWeight ? fontWeight : ""}
+            onValueChange={(value: "lighter" | "bolder" | "bold" | "normal") =>
+              useNodeStore
+                .getState()
+                .changeValue("fontWeight", value ? value : undefined)
+            }
+          >
             <SelectTrigger>
-              <SelectValue placeholder="Theme" />
+              <SelectValue placeholder="weight" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="light">Light</SelectItem>
-              <SelectItem value="dark">Dark</SelectItem>
-              <SelectItem value="system">System</SelectItem>
+              <SelectItem value="lighter">lighter</SelectItem>
+              <SelectItem value="normal">normal</SelectItem>
+              <SelectItem value="bold">bold</SelectItem>
+              <SelectItem value="bolder">bolder</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -36,15 +64,22 @@ const Text = () => {
           <Input type="number" id="gap" placeholder="gap" />
         </div>
         <div className="flex-1">
-          <Label htmlFor="gap">text-align</Label>
-          <Select>
+          <Label htmlFor="text-align">text-align</Label>
+          <Select
+            value={textAlign ? textAlign : ""}
+            onValueChange={(value: "left" | "center" | "right") =>
+              useNodeStore
+                .getState()
+                .changeValue("textAlign", value ? value : undefined)
+            }
+          >
             <SelectTrigger>
-              <SelectValue placeholder="Theme" />
+              <SelectValue placeholder="align" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="light">Light</SelectItem>
-              <SelectItem value="dark">Dark</SelectItem>
-              <SelectItem value="system">System</SelectItem>
+              <SelectItem value="left">left</SelectItem>
+              <SelectItem value="center">center</SelectItem>
+              <SelectItem value="right">right</SelectItem>
             </SelectContent>
           </Select>
         </div>

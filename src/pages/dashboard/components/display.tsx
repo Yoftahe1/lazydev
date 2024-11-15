@@ -34,7 +34,7 @@ const Display = () => {
               <SelectValue placeholder="direction" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="column">Column</SelectItem>
+              <SelectItem value="column">column</SelectItem>
               <SelectItem value="row">row</SelectItem>
             </SelectContent>
           </Select>
@@ -73,10 +73,10 @@ const Display = () => {
               <SelectValue placeholder="align" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="flex-start">Flex start</SelectItem>
-              <SelectItem value="center">Center</SelectItem>
-              <SelectItem value="flex-end">Flex End</SelectItem>
-              <SelectItem value="stretch">Stretch</SelectItem>
+              <SelectItem value="flex-start">flex start</SelectItem>
+              <SelectItem value="center">center</SelectItem>
+              <SelectItem value="flex-end">flex end</SelectItem>
+              <SelectItem value="stretch">stretch</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -102,12 +102,12 @@ const Display = () => {
               <SelectValue placeholder="justify" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="flex-start">Flex start</SelectItem>
-              <SelectItem value="center">Center</SelectItem>
-              <SelectItem value="flex-end">Flex End</SelectItem>
-              <SelectItem value="space-between">Between</SelectItem>
-              <SelectItem value="space-around">Around</SelectItem>
-              <SelectItem value="space-evenly">Evenly</SelectItem>
+              <SelectItem value="flex-start">flex start</SelectItem>
+              <SelectItem value="center">center</SelectItem>
+              <SelectItem value="flex-end">flex end</SelectItem>
+              <SelectItem value="space-between">between</SelectItem>
+              <SelectItem value="space-around">around</SelectItem>
+              <SelectItem value="space-evenly">evenly</SelectItem>
             </SelectContent>
           </Select>
         </div>

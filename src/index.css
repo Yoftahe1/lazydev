@@ -50,16 +50,17 @@ input[type="number"] {
   box-shadow: none !important;
 }
 
-.react-colorful__pointer{
-height: 15px !important ;
-width: 15px !important ;
+.react-colorful{
+gap: 10px;
 }
 
-.react-colorful__hue {
+.react-colorful__pointer {
+  height: 15px !important ;
+  width: 15px !important ;
+}
+
+.react-colorful__hue,.react-colorful__last-control {
   height: 8px !important ;
-}
-
-.react-colorful__last-control{
   border-radius: 5px !important;
 }
 

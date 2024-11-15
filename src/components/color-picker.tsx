@@ -7,25 +7,32 @@ import {
 import { Button } from "@/components/ui/button";
 import { RgbaColorPicker } from "react-colorful";
 
-const ColorPicker = () => {
-  const [color, setColor] = useState("#aabbcc");
+interface ColorPickerI {
+  value: string;
+  onChange: (color: string) => void;
+}
+
+const ColorPicker = ({ value, onChange }: ColorPickerI) => {
+  const [color, setColor] = useState(value);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="w-min">
-          <div
-            className="w-6 h-6 rounded-sm"
-            style={{ background: color }}
-          ></div>
+        <Button variant="outline" className="w-full p-2">
+          <div className="w-6 h-6 rounded-sm" style={{ background: `#${color}` }} />
           <p className="text-xs">{color}</p>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="start"
-        className="p-2 mt-2 bg-background border border-input z-50 rounded-xl"
+        className="p-3 mt-2 bg-background border border-input z-50 rounded-xl"
       >
-        <RgbaColorPicker onChange={(color) => setColor(rgbaToHex(color))} />
+        <RgbaColorPicker
+          onChange={(color) => {
+            setColor(rgbaToHex(color));
+            onChange(rgbaToHex(color));
+          }}
+        />
       </DropdownMenuContent>
     </DropdownMenu>
   );
@@ -45,5 +52,5 @@ function rgbaToHex({ r, g, b, a }: RGBA): string {
 
   const alpha = Math.round(a * 255);
 
-  return `#${toHex(r)}${toHex(g)}${toHex(b)}${toHex(alpha)}`;
+  return `${toHex(r)}${toHex(g)}${toHex(b)}${toHex(alpha)}`;
 }

@@ -9,11 +9,15 @@ import {
 } from "@/components/ui/select";
 import useNodeStore from "@/stores/nodes";
 import getTag from "../function/get-tag";
+import ColorPicker from "@/components/color-picker";
 
 const Text = () => {
   const path = useNodeStore((state) => state.path);
   const nodes = useNodeStore((state) => state.nodes);
-  const { fontWeight,fontSize, textAlign, content, type } = getTag(nodes, path);
+  const { fontWeight, fontSize, textAlign, content, type, color } = getTag(
+    nodes,
+    path
+  );
 
   if (typeof content === "object" || type === "image") return null;
 
@@ -23,18 +27,18 @@ const Text = () => {
         <div className="flex-1">
           <Label htmlFor="size">size</Label>
           <Input
-          min={0}
-          id="size"
-          type="number"
-          placeholder="width"
-          value={fontSize ? fontSize : ""}
-          onChange={(event) => {
-            const value = event.target.value;
-            useNodeStore
-              .getState()
-              .changeValue("fontSize", value ? Number(value) : undefined);
-          }}
-        />
+            min={0}
+            id="size"
+            type="number"
+            placeholder="width"
+            value={fontSize ? fontSize : ""}
+            onChange={(event) => {
+              const value = event.target.value;
+              useNodeStore
+                .getState()
+                .changeValue("fontSize", value ? Number(value) : undefined);
+            }}
+          />
         </div>
         <div className="flex-1">
           <Label htmlFor="weight">weight</Label>
@@ -60,8 +64,15 @@ const Text = () => {
       </div>
       <div className="flex gap-4">
         <div className="flex-1">
-          <Label htmlFor="width">color</Label>
-          <Input type="number" id="gap" placeholder="gap" />
+          <Label htmlFor="color">color</Label>
+          <ColorPicker
+            value={color ? color : "00000000"}
+            onChange={(value) =>
+              useNodeStore
+                .getState()
+                .changeValue("color", value ? value : undefined)
+            }
+          />
         </div>
         <div className="flex-1">
           <Label htmlFor="text-align">text-align</Label>

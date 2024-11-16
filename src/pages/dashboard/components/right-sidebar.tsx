@@ -19,7 +19,7 @@ const RightSidebar = () => {
   return (
     <div className="w-72 overflow-auto border-l-2 border-input p-4 flex flex-col gap-4">
       <div className="flex-1 flex flex-col gap-4">
-        <h6 className="text-sm text-center">
+        <h6 className="text-sm font-bold text-center">
           {tag.type.toLocaleUpperCase()} FEATURES
         </h6>
         <Content />

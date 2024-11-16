@@ -4,7 +4,6 @@ import Dustbin from "./dustbin";
 import TagI from "@/types/tag";
 import useNodeStore from "@/stores/nodes";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 interface GenerateTagI {
   tag: TagI;
@@ -107,7 +106,6 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
           }
           onClick={(e) => handleClick(e, path)}
           key={path}
-          className={cn(path === pathState && "bg-red-400")}
         >
           {typeof tag.content === "string" ? tag.content : ""}
         </p>

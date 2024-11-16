@@ -1,18 +1,18 @@
-import { ModeToggle } from "@/components/mode-toggle";
-import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/mode-toggle";
+
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <div className="h-14 flex justify-between items-center shadow-md">
-      <div>
-        <p>Lazy Dev</p>
-      </div>
-      <div className="flex gap-5 items-center">
+    <header className="flex justify-between items-center py-2 px-20 border-b-[1px] border-input">
+      <p className="font-pj font-bold text-3xl ">LAZYDEV</p>
+      <div className="flex gap-3">
         <ModeToggle />
-        <Button onClick={() => navigate("/dashboard")}>Dashboard</Button>
+        <Button onClick={() => navigate("/dashboard")}>Get Started</Button>
       </div>
-    </div>
+    </header>
   );
 };
 

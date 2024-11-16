@@ -12,9 +12,12 @@ const LeftSidebar = () => {
   return (
     <div className="w-72  border-r-2 border-input  flex flex-col ">
       <div className="border-b-[1px] px-4 py-4 flex flex-col gap-2">
-        <p className="font-bold text-xl">Lazy Dev</p>
+        <p className="font-pj font-semibold text-xl tracking-widest">LAZYDEV</p>
       </div>
-      <Tabs defaultValue="tag" className="flex-1 flex flex-col p-4  overflow-auto">
+      <Tabs
+        defaultValue="tag"
+        className="flex-1 flex flex-col p-4  overflow-auto"
+      >
         <TabsList className="w-full">
           <TabsTrigger value="tag" className="flex-1 ">
             Tags
@@ -23,12 +26,12 @@ const LeftSidebar = () => {
             Tree
           </TabsTrigger>
         </TabsList>
-          <TabsContent value="tag">
-            <Tags />
-          </TabsContent>
-          <TabsContent value="tree">
-            <App />
-          </TabsContent>
+        <TabsContent value="tag">
+          <Tags />
+        </TabsContent>
+        <TabsContent value="tree">
+          <App />
+        </TabsContent>
       </Tabs>
       <div className="border-t-[1px] px-4 py-2 flex flex-col gap-2">
         <div className="flex justify-between items-center  ">

@@ -8,6 +8,7 @@ import Placeholder from "./placeholder";
 import Display from "./display";
 import Text from "./text";
 import Container from "./container";
+import Name from "./name";
 
 const RightSidebar = () => {
   const path = useNodeStore((state) => state.path);
@@ -22,6 +23,7 @@ const RightSidebar = () => {
         <h6 className="text-sm font-bold text-center">
           {tag.type.toLocaleUpperCase()} FEATURES
         </h6>
+        <Name />
         <Content />
         <Placeholder />
         <Size />

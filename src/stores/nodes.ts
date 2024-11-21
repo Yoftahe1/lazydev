@@ -24,78 +24,7 @@ type Actions = {
 
 const useNodeStore = create<State & Actions>()(
   immer((set) => ({
-    nodes: [
-      {
-        id: "0",
-        type: "nodeContainer",
-        position: { x: 300, y: 300 },
-        data: {
-          id: "0",
-          tag: {
-            type: "screen",
-            direction: "column",
-            height: 1000,
-            width: 1800,
-            content: [
-              {
-                type: "image",
-                height: 300,
-                width: 300,
-                bgColor: "5825f5",
-                content: "",
-                radius: 20,
-                placeholder: "Please provide image alt",
-              },
-              {
-                type: "image",
-                height: 300,
-                width: 300,
-                bgColor: "9f5a88",
-                content: "",
-                radius: 20,
-                placeholder: "Please provide image alt",
-              },
-              {
-                type: "image",
-                height: 300,
-                width: 300,
-                bgColor: "5825f5",
-                content: "",
-                radius: 20,
-                placeholder: "Please provide image alt",
-              },
-              {
-                type: "image",
-                height: 300,
-                width: 300,
-                bgColor: "9f5a88",
-                content: "",
-                radius: 20,
-                placeholder: "Please provide image alt",
-              },
-              {
-                type: "image",
-                height: 300,
-                width: 300,
-                bgColor: "5825f5",
-                content: "",
-                radius: 20,
-                placeholder: "Please provide image alt",
-              },
-              {
-                type: "image",
-                height: 300,
-                width: 300,
-                bgColor: "9f5a88",
-                content: "",
-                radius: 20,
-                placeholder: "Please provide image alt",
-              },
-            ],
-          },
-        },
-      },
-    ],
+    nodes: [],
     path: "",
     setPath: (path) => set(() => ({ path })),
     setNodes: (nodes) =>

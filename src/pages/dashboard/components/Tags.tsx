@@ -10,14 +10,27 @@ import {
 import TagI from "@/types/tag";
 import defaultTags from "@/constants/tags/default";
 import shadCnTags from "@/constants/tags/shadcn";
+import useNodeStore from "@/stores/nodes";
 
 const Tags = () => {
+  const nodes = useNodeStore((state) => state.nodes).filter((node) =>
+    node.data.tag.name?.startsWith("components")
+  );
+
+  const customTags = nodes.flatMap((node) => {
+    let tags = node.data.tag.content as TagI[];
+    return tags.map((tag) => ({
+      value: tag,
+      name: tag.name ? tag.name : "name",
+    }));
+  });
+
   return (
     <div className="flex flex-col gap-2 ">
       <Accordion title="Default" tags={defaultTags} />
       <Accordion title="ShadCn" tags={shadCnTags} />
       <Accordion title="ReactNative" tags={[]} />
-      <Accordion title="Custom" tags={[]} />
+      <Accordion title="Custom" tags={customTags} />
     </div>
   );
 };

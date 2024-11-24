@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDrag } from "react-dnd";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronUp, ChevronDown, Info } from "lucide-react";
 
 import {
   Collapsible,
@@ -11,6 +11,12 @@ import TagI from "@/types/tag";
 import defaultTags from "@/constants/tags/default";
 import shadCnTags from "@/constants/tags/shadcn";
 import useNodeStore from "@/stores/nodes";
+
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const Tags = () => {
   const nodes = useNodeStore((state) => state.nodes).filter((node) =>
@@ -35,6 +41,8 @@ const Tags = () => {
   );
 };
 
+export default Tags;
+
 interface AccordionI {
   title: string;
   tags: {
@@ -49,7 +57,10 @@ function Accordion({ title, tags }: AccordionI) {
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
       <CollapsibleTrigger className="w-full">
         <div className="w-full flex justify-between hover:bg-accent hover:text-accent-foreground p-2 rounded-md">
-          <p className="text-sm font-semibold">{title}</p>
+          <div className="flex gap-2 items-center">
+            <p className="text-sm font-semibold">{title}</p>
+            {title === "Custom" && <Information />}
+          </div>
           {isOpen ? (
             <ChevronUp className="h-4 w-4" />
           ) : (
@@ -58,21 +69,38 @@ function Accordion({ title, tags }: AccordionI) {
         </div>
       </CollapsibleTrigger>
       <CollapsibleContent className=" mt-2 ">
-        {tags.length === 0 ? (
+        {title === "ReactNative" && (
           <p className="w-full text-center">coming soon</p>
-        ) : (
-          <div className="grid grid-cols-2 gap-4 ">
-            {tags.map((tag) => (
-              <Tag key={tag.name} name={tag.name} tag={tag.value} />
-            ))}
-          </div>
         )}
+        {title === "Custom" && tags.length === 0 && (
+          <p className="w-full text-center">no custom components</p>
+        )}
+        <div className="grid grid-cols-2 gap-4 ">
+          {tags.map((tag) => (
+            <Tag key={tag.name} name={tag.name} tag={tag.value} />
+          ))}
+        </div>
       </CollapsibleContent>
     </Collapsible>
   );
 }
 
-export default Tags;
+function Information() {
+  return (
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <Info className="h-4 w-4 text-muted-foreground" />
+      </HoverCardTrigger>
+      <HoverCardContent className="w-60 ml-4">
+        <p className="text-xs">
+          Custom components are created by defining a screen whose name starts
+          with 'components' and all the children of that screen will be
+          considered custom components.
+        </p>
+      </HoverCardContent>
+    </HoverCard>
+  );
+}
 
 function Tag({ tag, name }: { tag: TagI; name: string }) {
   const [, drag] = useDrag(() => ({

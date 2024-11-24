@@ -3,6 +3,13 @@ import { CSSProperties } from "react";
 import TagI from "@/types/tag";
 import { Button } from "@/components/ui/button";
 
+const shadow = {
+  none: "",
+  small: " 0 1px 2px rgb(0 0 0 / 0.1),0 1px 1px rgb(0 0 0 / 0.06)",
+  medium: " 0 4px 3px rgb(0 0 0 / 0.07), 0 2px 2px rgb(0 0 0 / 0.06)",
+  large: " 0 10px 8px rgb(0 0 0 / 0.04), 0 4px 3px rgb(0 0 0 / 0.1)",
+};
+
 interface GenerateTagI {
   tag: TagI;
 }
@@ -27,6 +34,7 @@ const GenerateTag = ({ tag }: GenerateTagI) => {
     width: tag.width ? `${tag.width}px` : undefined,
     height: tag.height ? `${tag.height}px` : undefined,
     display: tag.type === "container" ? "flex" : undefined,
+    boxShadow: tag.shadow ? shadow[tag.shadow] : "none",
     flexDirection: tag.direction,
     alignItems: tag.align,
     justifyContent: tag.justify,
@@ -42,6 +50,7 @@ const GenerateTag = ({ tag }: GenerateTagI) => {
             ))}
         </div>
       );
+      
     case "screen":
       delete style["height"];
       delete style["width"];

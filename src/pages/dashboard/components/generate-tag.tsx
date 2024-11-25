@@ -24,7 +24,6 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
   const style: CSSProperties = {
     color: tag.color ? `#${tag.color}` : undefined,
     backgroundColor: tag.bgColor ? `#${tag.bgColor}` : undefined,
-    borderRadius: tag.radius ? `${tag.radius}px` : undefined,
     fontSize: tag.fontSize ? `${tag.fontSize}px` : undefined,
     fontWeight: tag.fontWeight,
     textAlign: tag.textAlign,
@@ -44,6 +43,10 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
     flexDirection: tag.direction,
     alignItems: tag.align,
     justifyContent: tag.justify,
+    borderWidth: tag.border ? `${tag.border}px` : undefined,
+    borderRadius: tag.bRadius ? `${tag.bRadius}px` : undefined,
+    borderColor: tag.bColor ? `#${tag.bColor}` : undefined,
+    borderStyle:tag.bType,
   };
 
   function handleClick(event: React.MouseEvent, path: string) {
@@ -101,7 +104,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
         <p
           style={
             path === pathState
-              ? { ...style, border: "1px solid #1677ff" }
+              ? { ...style, outline: "1px solid #1677ff" }
               : { ...style }
           }
           onClick={(e) => handleClick(e, path)}
@@ -116,7 +119,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
         <button
           style={
             path === pathState
-              ? { ...style, border: "1px solid #1677ff" }
+              ? { ...style, outline: "1px solid #1677ff" }
               : { ...style }
           }
           onClick={(e) => handleClick(e, path)}
@@ -133,7 +136,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
           alt={tag.placeholder || ""}
           style={
             path === pathState
-              ? { ...style, border: "1px solid #1677ff" }
+              ? { ...style, outline: "1px solid #1677ff" }
               : { ...style }
           }
           onClick={(e) => handleClick(e, path)}
@@ -149,7 +152,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
           placeholder={tag.placeholder || ""}
           style={
             path === pathState
-              ? { ...style, border: "1px solid #1677ff" }
+              ? { ...style, outline: "1px solid #1677ff" }
               : { ...style }
           }
           onClick={(e) => handleClick(e, path)}
@@ -164,7 +167,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
           placeholder={tag.placeholder || ""}
           style={
             path === pathState
-              ? { ...style, border: "1px solid #1677ff" }
+              ? { ...style, outline: "1px solid #1677ff" }
               : { ...style }
           }
           onClick={(e) => handleClick(e, path)}
@@ -176,7 +179,7 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
         <Button
           style={
             path === pathState
-              ? { ...style, border: "1px solid #1677ff" }
+              ? { ...style, outline: "1px solid #1677ff" }
               : { ...style }
           }
           onClick={(e) => handleClick(e, path)}

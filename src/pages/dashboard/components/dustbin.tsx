@@ -39,7 +39,7 @@ const Dustbin = ({ children, onClick, style, path }: DustbinProps) => {
       ref={drop}
       onClick={onClick}
       style={{
-        border:
+        outline:
           (isOverCurrent && isOver) || pathState === path
             ? "1px solid #1677ff"
             : "none",

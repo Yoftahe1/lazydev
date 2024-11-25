@@ -33,7 +33,7 @@ const Container = () => {
           <Label htmlFor="shadow">shadow</Label>
           <Select
             value={shadow ? shadow : ""}
-            onValueChange={(value: "small" | "medium" | "large") =>
+            onValueChange={(value: "none" | "small" | "medium" | "large") =>
               useNodeStore
                 .getState()
                 .changeValue("shadow", value ? value : undefined)

@@ -31,9 +31,12 @@ export default interface TagI {
   ml?: number;
   mb?: number;
   mr?: number;
-  radius?: number;
+  border?: number;
+  bColor?: string;
+  bType?:  "none" | "solid" | "dashed" | "dotted";
+  bRadius?: number;
   bgColor?: string;
-  shadow?: "small" | "medium" | "large";
+  shadow?: "none" | "small" | "medium" | "large";
   color?: string;
   fontSize?: number;
   textAlign?: "left" | "center" | "right";

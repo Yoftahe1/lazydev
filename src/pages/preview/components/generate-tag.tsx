@@ -18,7 +18,6 @@ const GenerateTag = ({ tag }: GenerateTagI) => {
   const style: CSSProperties = {
     color: tag.color ? `#${tag.color}` : undefined,
     backgroundColor: tag.bgColor ? `#${tag.bgColor}` : undefined,
-    borderRadius: tag.radius ? `${tag.radius}px` : undefined,
     fontSize: tag.fontSize ? `${tag.fontSize}px` : undefined,
     fontWeight: tag.fontWeight,
     textAlign: tag.textAlign,
@@ -38,6 +37,10 @@ const GenerateTag = ({ tag }: GenerateTagI) => {
     flexDirection: tag.direction,
     alignItems: tag.align,
     justifyContent: tag.justify,
+    borderWidth: tag.border ? `${tag.border}px` : undefined,
+    borderRadius: tag.bRadius ? `${tag.bRadius}px` : undefined,
+    borderColor: tag.bColor ? `#${tag.bColor}` : undefined,
+    borderStyle:tag.bType,
   };
 
   switch (tag.type) {

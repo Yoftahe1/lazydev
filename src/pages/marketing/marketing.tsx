@@ -17,7 +17,7 @@ const Marketing = () => {
       <Navbar />
       <section className="relative">
         <img src={pattern} className="absolute h-full"/>
-        <div className="flex flex-col items-center p-20 gap-10">
+        <div className="flex flex-col items-center p-20 gap-10 relative">
           <p className="text-lg font-inter ">
             Smart website builder, made for Developers
           </p>

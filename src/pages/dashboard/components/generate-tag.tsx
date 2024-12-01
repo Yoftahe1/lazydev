@@ -47,6 +47,12 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
     borderRadius: tag.bRadius ? `${tag.bRadius}px` : undefined,
     borderColor: tag.bColor ? `#${tag.bColor}` : undefined,
     borderStyle:tag.bType,
+    position:tag.position,
+    zIndex: tag.zIndex ? tag.zIndex : undefined,
+    top: tag.top ? `${tag.top}px` : undefined,
+    bottom: tag.bottom ? `${tag.bottom}px` : undefined,
+    left: tag.left ? `${tag.left}px` : undefined,
+    right: tag.right ? `${tag.right}px` : undefined,
   };
 
   function handleClick(event: React.MouseEvent, path: string) {

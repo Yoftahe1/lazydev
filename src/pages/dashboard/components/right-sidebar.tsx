@@ -10,6 +10,7 @@ import Text from "./text";
 import Container from "./container";
 import Name from "./name";
 import Border from "./border";
+import Position from "./position";
 
 const RightSidebar = () => {
   const path = useNodeStore((state) => state.path);
@@ -32,6 +33,7 @@ const RightSidebar = () => {
         <Text />
         <Container/>
         <Border/>
+        <Position/>
         <Box />
       </div>
       <Button

@@ -33,7 +33,7 @@ export default interface TagI {
   mr?: number;
   border?: number;
   bColor?: string;
-  bType?:  "none" | "solid" | "dashed" | "dotted";
+  bType?: "none" | "solid" | "dashed" | "dotted";
   bRadius?: number;
   bgColor?: string;
   shadow?: "none" | "small" | "medium" | "large";
@@ -43,5 +43,11 @@ export default interface TagI {
   fontWeight?: "lighter" | "bolder" | "bold" | "normal";
   placeholder?: string;
   inputOption?: "date" | "button" | "checkbox" | "email" | "password" | "text";
+  position?: "absolute" | "relative" | "fixed" | "static" | "sticky";
+  zIndex?: number;
+  top?: number;
+  bottom?: number;
+  right?: number;
+  left?: number;
   content?: TagI[] | string;
 }

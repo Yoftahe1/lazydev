@@ -20,8 +20,42 @@ const defaultTags: {
     value: {
       type: "container",
       direction: "column",
-      width: 300,
-      content: [],
+      gap: 10,
+      width: 250,
+      bRadius: 15,
+      bColor:"808080",
+      border:1,
+      bType:"solid",
+      pb: 10,
+      pl: 10,
+      pt: 10,
+      pr: 10,
+      shadow: "medium",
+      content: [
+        {
+          type: "image",
+          bRadius: 10,
+          content: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
+        },
+        {
+          type: "container",
+          direction: "column",
+          content: [
+            {
+              type: "text",
+              content: "Card title",
+              fontWeight:"bold",
+              fontSize:16
+            },
+            {
+              type: "text",
+              content: "Card description",
+              fontSize:14,
+              color:"808080"
+            },
+          ],
+        },
+      ],
     },
   },
   {
@@ -200,7 +234,6 @@ const defaultTags: {
       placeholder: "Please provide input",
     },
   },
-
   {
     name: "Screen",
     value: {

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  height: 100vh ;
+}
 ::-webkit-scrollbar-track {
 }
 
@@ -50,8 +53,8 @@ input[type="number"] {
   box-shadow: none !important;
 }
 
-.react-colorful{
-gap: 10px;
+.react-colorful {
+  gap: 10px;
 }
 
 .react-colorful__pointer {
@@ -59,7 +62,8 @@ gap: 10px;
   width: 15px !important ;
 }
 
-.react-colorful__hue,.react-colorful__last-control {
+.react-colorful__hue,
+.react-colorful__last-control {
   height: 8px !important ;
   border-radius: 5px !important;
 }

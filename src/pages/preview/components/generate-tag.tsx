@@ -41,6 +41,12 @@ const GenerateTag = ({ tag }: GenerateTagI) => {
     borderRadius: tag.bRadius ? `${tag.bRadius}px` : undefined,
     borderColor: tag.bColor ? `#${tag.bColor}` : undefined,
     borderStyle:tag.bType,
+    position:tag.position,
+    zIndex: tag.zIndex ? tag.zIndex : undefined,
+    top: tag.top !==undefined? `${tag.top}px` : undefined,
+    bottom: tag.bottom !==undefined? `${tag.bottom}px` : undefined,
+    left: tag.left !==undefined? `${tag.left}px` : undefined,
+    right: tag.right !==undefined? `${tag.right}px` : undefined,
   };
 
   switch (tag.type) {

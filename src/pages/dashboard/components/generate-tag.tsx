@@ -49,10 +49,10 @@ const GenerateTag = ({ tag, path }: GenerateTagI) => {
     borderStyle:tag.bType,
     position:tag.position,
     zIndex: tag.zIndex ? tag.zIndex : undefined,
-    top: tag.top ? `${tag.top}px` : undefined,
-    bottom: tag.bottom ? `${tag.bottom}px` : undefined,
-    left: tag.left ? `${tag.left}px` : undefined,
-    right: tag.right ? `${tag.right}px` : undefined,
+    top: tag.top !==undefined? `${tag.top}px` : undefined,
+    bottom: tag.bottom !==undefined? `${tag.bottom}px` : undefined,
+    left: tag.left !==undefined? `${tag.left}px` : undefined,
+    right: tag.right !==undefined? `${tag.right}px` : undefined,
   };
 
   function handleClick(event: React.MouseEvent, path: string) {

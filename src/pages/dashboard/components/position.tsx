@@ -14,7 +14,6 @@ const Position = () => {
   const path = useNodeStore((state) => state.path);
   const nodes = useNodeStore((state) => state.nodes);
   const { zIndex, position, top, bottom, right, left } = getTag(nodes, path);
-
   return (
     <>
       <div className="flex gap-4">
@@ -67,7 +66,7 @@ const Position = () => {
             id="top"
             type="number"
             placeholder="top"
-            value={top ? top : ""}
+            value={top !== undefined ? top : ""}
             onChange={(event) => {
               const value = event.target.value;
               useNodeStore
@@ -83,7 +82,7 @@ const Position = () => {
             id="bottom"
             type="number"
             placeholder="bottom"
-            value={bottom ? bottom : ""}
+            value={bottom !== undefined ? bottom : ""}
             onChange={(event) => {
               const value = event.target.value;
               useNodeStore
@@ -99,7 +98,7 @@ const Position = () => {
             id="right"
             type="number"
             placeholder="right"
-            value={right ? right : ""}
+            value={right !== undefined ? right : ""}
             onChange={(event) => {
               const value = event.target.value;
               useNodeStore
@@ -115,7 +114,7 @@ const Position = () => {
             id="left"
             type="number"
             placeholder="left"
-            value={left ? left : ""}
+            value={left !== undefined ? left : ""}
             onChange={(event) => {
               const value = event.target.value;
               useNodeStore

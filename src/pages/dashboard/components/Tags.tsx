@@ -114,7 +114,7 @@ function Tag({ tag, name }: { tag: TagI; name: string }) {
   return (
     <div
       ref={drag}
-      className="bg-white dark:bg-black rounded-md border-[1px] border-gray-400 hover:border-blue-500 border-dashed h-[117px] flex items-center justify-center cursor-move"
+      className="bg-white dark:bg-black rounded-md border border-gray-400 hover:border-blue-500 border-dashed h-[117px] flex items-center justify-center cursor-move"
     >
       <p className=" text-sm">{name.toUpperCase()}</p>
     </div>
